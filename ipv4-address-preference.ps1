@@ -112,6 +112,10 @@ if ($NetProfile.Name -like $ConnectedNetwork) {
         $Netadapter | Set-DnsClientServerAddress -ResetServerAddresses
     }
 
+    cmd /c ipconfig /release
+    Start-Sleep -Seconds 3
+    cmd /c ipconfig /renew
+
 }
 
 # If the computer is connected to multiple profiles, you will select the network to chose.
